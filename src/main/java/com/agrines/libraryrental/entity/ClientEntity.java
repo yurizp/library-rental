@@ -1,6 +1,6 @@
 package com.agrines.libraryrental.entity;
 
-import com.agrines.libraryrental.enums.StatusEnum;
+import com.agrines.libraryrental.enums.GenderEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,35 +14,26 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Objects;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "rental_book")
-public class RentalBookEntity {
+@Entity(name = "client")
+public class ClientEntity {
+
     @Id()
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "status")
+    @Column(name = "name")
+    private String name;
+    @Column(name = "birthday")
+    private LocalDate birthday;
+    @Column(name = "gender")
     @Enumerated(value = EnumType.STRING)
-    private StatusEnum status;
-
-    @Column(name = "book_id")
-    private Long bookId;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof RentalBookEntity)) return false;
-        RentalBookEntity that = (RentalBookEntity) o;
-        return Objects.equals(getId(), that.getId()) &&
-                getStatus() == that.getStatus() &&
-                Objects.equals(getBookId(), that.getBookId());
-    }
+    private GenderEnum gender;
 
 }

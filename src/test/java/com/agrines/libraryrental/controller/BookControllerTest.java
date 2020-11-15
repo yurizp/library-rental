@@ -5,6 +5,7 @@ import com.agrines.libraryrental.dto.BookPropertyDto;
 import com.agrines.libraryrental.dto.RentalBookDto;
 import com.agrines.libraryrental.enums.StatusEnum;
 import com.agrines.libraryrental.service.BookService;
+import com.agrines.libraryrental.service.RentalBookService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -17,9 +18,12 @@ import utils.ResourceUtils;
 
 import java.util.Arrays;
 
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @AutoConfigureMockMvc
@@ -28,10 +32,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class BookControllerTest {
 
     @Autowired
-    MockMvc client;
+    private MockMvc client;
 
     @MockBean
-    BookService service;
+    private BookService service;
+
+    @MockBean
+    private RentalBookService rentalBookService;
 
     @Test
     public void shouldReturnAllBooks() throws Exception {
@@ -41,6 +48,16 @@ public class BookControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is(200))
                 .andExpect(content().json(response));
+    }
+
+    @Test
+    public void shouldReserve() throws Exception {
+        client.perform(post("/v1/books/123/reserve/")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .accept(MediaType.APPLICATION_JSON_VALUE)
+                .content("{\"clientId\":333}"))
+                .andExpect(status().is(202));
+        verify(rentalBookService).rentBook(eq(123L), eq(333L));
     }
 
     private BookDto createBookDto() {
