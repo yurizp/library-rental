@@ -1,0 +1,23 @@
+[
+  {
+    "id": 483,
+    "title": "title",
+    "description": "description",
+    "isbn10": "isbn10",
+    "isbn13": "isbn13",
+    "status": "AVAILABLE",
+    "rentalBooks": [
+      {
+        "id": 1,
+        "status": "AVAILABLE"
+      }
+    ],
+    "properties": [
+      {
+        "id": 189,
+        "key": "key",
+        "value": "value"
+      }
+    ]
+  }
+]

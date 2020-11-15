@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      author: yurizp
+      id: dml-14-14-11-2020
+      comment: Cria a base para a base de dados
+      changes:
+        - tagDatabase:
+            tag: data-01
+        - sqlFile:
+            path: scripts/001.criar_estrutura_inicial.sql
+            relativeToChangelogFile: true

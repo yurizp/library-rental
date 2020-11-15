@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/data?createDatabaseIfNotExist=true
+    url: jdbc:mysql://127.0.0.1:3306/data?createDatabaseIfNotExist=true
+    username: root
+  liquibase:
+    url: jdbc:mysql://127.0.0.1:3306/data?createDatabaseIfNotExist=true
+    user: root
+
+database:
+  url: jdbc:mysql://127.0.0.1:3306/data?createDatabaseIfNotExist=true
