@@ -1,6 +1,8 @@
 package com.agriness.libraryrental.entity;
 
 import com.agriness.libraryrental.config.ObjectUtils;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -41,6 +43,7 @@ public class RentalBookClientEntity {
     private LocalDate lentedDate;
     @Column(name = "returned_date")
     private LocalDate returnedDate;
+    @JsonManagedReference
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "rental_book_id", referencedColumnName = "id", updatable = false, insertable = false)
     private RentalBookEntity rentalBook;

@@ -5,10 +5,15 @@ import com.agriness.libraryrental.entity.RentalTaxEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 @Component
 @AllArgsConstructor
 public class TaxMapper {
     public TaxDto creteTaxDto(RentalTaxEntity rentalTax, Long totalDays) {
+        if(Objects.isNull(rentalTax)){
+            return null;
+        }
         return TaxDto.builder()
                 .dailyRate(rentalTax.getDailyRate())
                 .daysArrear(rentalTax.getDaysArrear())

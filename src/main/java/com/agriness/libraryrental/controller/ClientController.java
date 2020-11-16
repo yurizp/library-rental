@@ -24,7 +24,8 @@ public class ClientController {
     @GetMapping("/{clientId}/books/")
     @ApiOperation(value = "Retorna o historico de livros do cliente pelo id.", notes = "Retorna o historico de livros do cliente pelo id.")
     public ResponseEntity<List<RentalBookSummaryDto>> reserveBook(@PathVariable Long clientId) {
-        List<RentalBookSummaryDto> rentalBooksDtos = service.getRentalBooks(clientId);
+        List<RentalBookSummaryDto> rentalBooksDtos = service.
+                getRentalBooksByClientId(clientId);
         return ResponseEntity.ok(rentalBooksDtos);
     }
 }

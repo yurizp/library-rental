@@ -2,6 +2,7 @@ package com.agriness.libraryrental.entity;
 
 import com.agriness.libraryrental.config.ObjectUtils;
 import com.agriness.libraryrental.enums.StatusEnum;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -39,6 +40,7 @@ public class RentalBookEntity {
     private StatusEnum status;
     @Column(name = "book_id")
     private Long bookId;
+    @JsonBackReference
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id", referencedColumnName = "id", updatable = false, insertable = false)
     private BookEntity book;

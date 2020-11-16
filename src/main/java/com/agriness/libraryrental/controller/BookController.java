@@ -34,9 +34,15 @@ public class BookController {
 
     @PostMapping("/{bookId}/reserve/")
     @ApiOperation(value = "Reserva um livro para um cliente.", notes = "Reserva um livro para um cliente.")
-    public ResponseEntity<List<BookDto>> reserveBook(@PathVariable Long bookId,
-                                                     @RequestBody ReserveClientRequest body) {
+    public ResponseEntity reserveBook(@PathVariable Long bookId, @RequestBody ReserveClientRequest body) {
         rentalBookService.rentBook(bookId, body.getClientId());
+        return ResponseEntity.accepted().build();
+    }
+
+    @PostMapping("/{bookId}/return/")
+    @ApiOperation(value = "Devolve o livro.", notes = "Devolve o livro.")
+    public ResponseEntity returnBook(@PathVariable Long bookId, @RequestBody ReserveClientRequest body) {
+        rentalBookService.returnRentedBook(bookId, body.getClientId());
         return ResponseEntity.accepted().build();
     }
 }

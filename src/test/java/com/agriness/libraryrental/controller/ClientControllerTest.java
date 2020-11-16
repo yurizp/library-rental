@@ -38,7 +38,7 @@ public class ClientControllerTest {
     @Test
     public void shouldReturnAllReservedBooks() throws Exception {
         String response = ResourceUtils.loadResourceAsString("json/client/return-reserved-books.json");
-        when(service.getRentalBooks(anyLong())).thenReturn(Arrays.asList(createRentalBookSummaryDto()));
+        when(service.getRentalBooksByClientId(anyLong())).thenReturn(Arrays.asList(createRentalBookSummaryDto()));
         client.perform(get("/v1/clients/123/books/")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is(200))

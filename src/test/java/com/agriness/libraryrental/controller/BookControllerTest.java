@@ -60,6 +60,16 @@ public class BookControllerTest {
         verify(rentalBookService).rentBook(eq(123L), eq(333L));
     }
 
+    @Test
+    public void shouldReturnBook() throws Exception {
+        client.perform(post("/v1/books/123/return/")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .accept(MediaType.APPLICATION_JSON_VALUE)
+                .content("{\"clientId\":333}"))
+                .andExpect(status().is(202));
+        verify(rentalBookService).returnRentedBook(eq(123L), eq(333L));
+    }
+
     private BookDto createBookDto() {
         return BookDto.builder()
                 .id(483L)

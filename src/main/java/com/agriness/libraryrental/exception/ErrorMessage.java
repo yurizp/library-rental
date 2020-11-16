@@ -11,6 +11,7 @@ public enum ErrorMessage {
     UNAVIABLE_RENT_BOOK("BOOK-002", "Livro não localizado ou indisponivel.", "Não foi encontrado livro disponivel para emprestimo."),
     CLIENT_NOT_RENT_BOOK("BOOK-003", "Não foram encontrados livros para o cliente.", "Não foi encontrado nenhum livro para o cliente."),
     RENTAL_BOOK_NOT_FOUND("RENTAL-001", "Não foram encontrados livros para o cliente.", "Não foi encontrado nenhum livro para o cliente."),
+    ALREDY_RENTED_BOOK("RENTAL-002", "Livro já reservado pelo o cliente.", "Livro já reservado pelo o cliente."),
     CLIENT_NOT_FOUND("CLIENT-001", "Cliente não localizado.", "O cliente informado não foi localizado.");
 
     private final String code;
