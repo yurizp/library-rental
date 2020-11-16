@@ -1,6 +1,7 @@
 package com.agrines.libraryrental.mapper;
 
 import com.agrines.libraryrental.dto.BookDto;
+import com.agrines.libraryrental.dto.BookSummaryDto;
 import com.agrines.libraryrental.entity.BookEntity;
 import com.agrines.libraryrental.entity.RentalBookEntity;
 import com.agrines.libraryrental.enums.StatusEnum;
@@ -40,4 +41,6 @@ public class BookMapper {
                 .map(RentalBookEntity::getStatus)
                 .orElse(StatusEnum.RENTED);
     }
+
+
 }

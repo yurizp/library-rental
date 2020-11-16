@@ -1,10 +1,12 @@
 package com.agrines.libraryrental.entity;
 
+import com.agrines.libraryrental.config.ObjectUtils;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.SneakyThrows;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,7 +17,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import java.util.List;
 
 @Getter
@@ -44,4 +45,10 @@ public class BookEntity {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id", referencedColumnName = "id", updatable = false, insertable = false)
     private List<BookPropertyEntity> properties;
+
+    @SneakyThrows
+    @Override
+    public String toString() {
+        return ObjectUtils.toString(this);
+    }
 }

@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface RentalBookRepository extends CrudRepository<RentalBookEntity, Long> {
 
     Optional<RentalBookEntity> findFirstByBookIdAndStatus(Long bookId, StatusEnum status);
+
 }

@@ -1,6 +1,6 @@
 package com.agrines.libraryrental.exception;
 
-import com.agrines.libraryrental.ObjectUtils;
+import com.agrines.libraryrental.config.ObjectUtils;
 import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
 

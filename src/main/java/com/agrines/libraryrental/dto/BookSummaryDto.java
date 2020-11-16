@@ -1,6 +1,5 @@
 package com.agrines.libraryrental.dto;
 
-import com.agrines.libraryrental.enums.StatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,14 +13,13 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookDto {
+public class BookSummaryDto {
 
     private Long id;
     private String title;
     private String description;
     private String isbn10;
     private String isbn13;
-    private StatusEnum status;
-    private List<RentalBookDto> rentalBooks;
     private List<BookPropertyDto> properties;
+
 }

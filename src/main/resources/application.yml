@@ -7,6 +7,11 @@ spring:
   liquibase:
     url: jdbc:mysql://127.0.0.1:3306/library?createDatabaseIfNotExist=true
     user: root
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLInnoDBDialect
+        enable_lazy_load_no_trans: true
 
 database:
   url: jdbc:mysql://127.0.0.1:3306/library?createDatabaseIfNotExist=true

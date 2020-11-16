@@ -1,12 +1,10 @@
 package com.agrines.libraryrental.entity;
 
-import com.agrines.libraryrental.config.ObjectUtils;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.SneakyThrows;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,23 +17,19 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "book_properties")
-public class BookPropertyEntity {
+@Entity(name = "rental_tax")
+public class RentalTaxEntity {
 
     @Id()
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "book_id")
-    private Long bookId;
-    @Column(name = "key")
-    private String key;
-    @Column(name = "value")
-    private String value;
-
-    @SneakyThrows
-    @Override
-    public String toString() {
-        return ObjectUtils.toString(this);
-    }
+    @Column(name = "description")
+    private String description;
+    @Column(name = "days_arrear")
+    private Integer daysArrear;
+    @Column(name = "daily_rate")
+    private Double dailyRate;
+    @Column(name = "penalty")
+    private Double penalty;
 }

@@ -1,4 +1,4 @@
-package com.agrines.libraryrental;
+package com.agrines.libraryrental.config;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

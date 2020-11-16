@@ -20,4 +20,5 @@ public class ClientService {
                 .map(mapper::createClientDto)
                 .orElseThrow(() -> new NotFoundException(ErrorMessage.CLIENT_NOT_FOUND));
     }
+
 }

@@ -38,6 +38,6 @@ INSERT INTO `library`.`rental_book` (`id`, `book_id`, `status`) VALUES ('10','3'
 
 INSERT INTO `library`.`rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('6', '1', '2020-11-10', '2020-11-13');
 INSERT INTO `library`.`rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('7', '2', '2020-10-28', '2020-11-01');
-INSERT INTO `library`.`rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('8', '3', '2020-11-15', '');
-INSERT INTO `library`.`rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('9', '1', '2020-11-15', '');
+INSERT INTO `library`.`rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('8', '3', '2020-11-15', null);
+INSERT INTO `library`.`rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('9', '1', '2020-11-15', null);
 INSERT INTO `library`.`rental_book_client` (`rental_book_id`, `client_id`, `lented_date`) VALUES ('10', '2', '2020-11-15');

@@ -1,9 +1,9 @@
 CREATE TABLE `book` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(45) DEFAULT NULL,
+  `title` varchar(120) DEFAULT NULL,
   `description` varchar(3000) NOT NULL,
-  `isbn_13` varchar(20) NOT NULL,
-  `isbn_10` varchar(15) NOT NULL,
+  `isbn_13` varchar(20),
+  `isbn_10` varchar(15),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 

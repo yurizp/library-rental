@@ -1,0 +1,21 @@
+[
+  {
+    "renteDate": "2020-11-13",
+    "returnDate": null,
+    "tax": {
+      "description": "description",
+      "dailyRate": 0.6,
+      "penalty": 7.0,
+      "daysArrear": 7,
+      "totalTax": 13.0
+    },
+    "bookSummary": {
+      "id": 42,
+      "title": "title",
+      "description": "Description",
+      "isbn10": "isbn10",
+      "isbn13": "isbn13",
+      "properties": []
+    }
+  }
+]

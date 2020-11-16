@@ -1,6 +1,6 @@
 package com.agrines.libraryrental.exception;
 
-import com.agrines.libraryrental.ObjectUtils;
+import com.agrines.libraryrental.config.ObjectUtils;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
