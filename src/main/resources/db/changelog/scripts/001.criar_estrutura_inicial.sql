@@ -40,7 +40,7 @@ CREATE TABLE `rental_book_client` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `rental_tax` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(45) NOT NULL,
   `days_arrear` int(11) NOT NULL,
   `daily_rate` double NOT NULL,

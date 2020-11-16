@@ -21,23 +21,28 @@ INSERT INTO `book_properties` (`book_id`, `key`, `value`) VALUES ('4', 'Editora 
 INSERT INTO `book_properties` (`book_id`, `key`, `value`) VALUES ('4', 'Idioma', 'Inglês');
 INSERT INTO `book_properties` (`book_id`, `key`, `value`) VALUES ('4', 'Número de páginas', '118 páginas');
 
-INSERT INTO `library`.`client` (`id`, `name`, `birthday`, `gender`) VALUES ('1', 'Paulo', '1999-12-11', 'PANGENDER');
-INSERT INTO `library`.`client` (`id`, `name`, `birthday`, `gender`) VALUES ('2', 'Maria', '1921-09-12', 'TRANS');
-INSERT INTO `library`.`client` (`id`, `name`, `birthday`, `gender`) VALUES ('3', 'Betina', '1982-04-01', 'FEMME');
+INSERT INTO `client` (`id`, `name`, `birthday`, `gender`) VALUES ('1', 'Paulo', '1999-12-11', 'PANGENDER');
+INSERT INTO `client` (`id`, `name`, `birthday`, `gender`) VALUES ('2', 'Maria', '1921-09-12', 'TRANS');
+INSERT INTO `client` (`id`, `name`, `birthday`, `gender`) VALUES ('3', 'Betina', '1982-04-01', 'FEMME');
 
-INSERT INTO `library`.`rental_book` (`id`, `book_id`, `status`) VALUES ('1','1', 'AVAILABLE');
-INSERT INTO `library`.`rental_book` (`id`, `book_id`, `status`) VALUES ('2','1', 'AVAILABLE');
-INSERT INTO `library`.`rental_book` (`id`, `book_id`, `status`) VALUES ('3','1', 'AVAILABLE');
-INSERT INTO `library`.`rental_book` (`id`, `book_id`, `status`) VALUES ('4','2', 'AVAILABLE');
-INSERT INTO `library`.`rental_book` (`id`, `book_id`, `status`) VALUES ('5','2', 'AVAILABLE');
-INSERT INTO `library`.`rental_book` (`id`, `book_id`, `status`) VALUES ('6','2', 'RENTED');
-INSERT INTO `library`.`rental_book` (`id`, `book_id`, `status`) VALUES ('7','2', 'RENTED');
-INSERT INTO `library`.`rental_book` (`id`, `book_id`, `status`) VALUES ('8','3', 'RENTED');
-INSERT INTO `library`.`rental_book` (`id`, `book_id`, `status`) VALUES ('9','3', 'RENTED');
-INSERT INTO `library`.`rental_book` (`id`, `book_id`, `status`) VALUES ('10','3', 'RENTED');
+INSERT INTO `rental_book` (`id`, `book_id`, `status`) VALUES ('1','1', 'AVAILABLE');
+INSERT INTO `rental_book` (`id`, `book_id`, `status`) VALUES ('2','1', 'AVAILABLE');
+INSERT INTO `rental_book` (`id`, `book_id`, `status`) VALUES ('3','1', 'AVAILABLE');
+INSERT INTO `rental_book` (`id`, `book_id`, `status`) VALUES ('4','2', 'AVAILABLE');
+INSERT INTO `rental_book` (`id`, `book_id`, `status`) VALUES ('5','2', 'AVAILABLE');
+INSERT INTO `rental_book` (`id`, `book_id`, `status`) VALUES ('6','2', 'RENTED');
+INSERT INTO `rental_book` (`id`, `book_id`, `status`) VALUES ('7','2', 'RENTED');
+INSERT INTO `rental_book` (`id`, `book_id`, `status`) VALUES ('8','3', 'RENTED');
+INSERT INTO `rental_book` (`id`, `book_id`, `status`) VALUES ('9','3', 'RENTED');
+INSERT INTO `rental_book` (`id`, `book_id`, `status`) VALUES ('10','3', 'RENTED');
 
-INSERT INTO `library`.`rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('6', '1', '2020-11-10', '2020-11-13');
-INSERT INTO `library`.`rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('7', '2', '2020-10-28', '2020-11-01');
-INSERT INTO `library`.`rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('8', '3', '2020-11-15', null);
-INSERT INTO `library`.`rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('9', '1', '2020-11-15', null);
-INSERT INTO `library`.`rental_book_client` (`rental_book_id`, `client_id`, `lented_date`) VALUES ('10', '2', '2020-11-15');
+INSERT INTO `rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('6', '1', '2020-11-10', '2020-11-13');
+INSERT INTO `rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('7', '2', '2020-10-28', '2020-11-01');
+INSERT INTO `rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('8', '3', '2020-11-15', null);
+INSERT INTO `rental_book_client` (`rental_book_id`, `client_id`, `lented_date`, `returned_date`) VALUES ('9', '1', '2020-11-15', null);
+INSERT INTO `rental_book_client` (`rental_book_id`, `client_id`, `lented_date`) VALUES ('10', '2', '2020-11-15');
+
+INSERT INTO `rental_tax` (`description`, `days_arrear`, `daily_rate`, `penalty`) VALUES ('Sem atraso', '0', '0', '0');
+INSERT INTO `rental_tax` (`description`, `days_arrear`, `daily_rate`, `penalty`) VALUES ('Até 3 dias', '2', '0.2', '3');
+INSERT INTO `rental_tax` (`description`, `days_arrear`, `daily_rate`, `penalty`) VALUES ('Acima 3 dias', '3', '0.4', '5');
+INSERT INTO `rental_tax` (`description`, `days_arrear`, `daily_rate`, `penalty`) VALUES ('Acima 5 dias', '5', '0.6', '7');

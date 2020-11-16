@@ -1,11 +1,11 @@
 spring:
   datasource:
     hikari:
-      jdbc-url: jdbc:mysql://127.0.0.1:3306/library?createDatabaseIfNotExist=true
-    url: jdbc:mysql://127.0.0.1:3306/library?createDatabaseIfNotExist=true
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/librarydb?createDatabaseIfNotExist=true
+    url: jdbc:mysql://127.0.0.1:3306/librarydb?createDatabaseIfNotExist=true
     username: root
   liquibase:
-    url: jdbc:mysql://127.0.0.1:3306/library?createDatabaseIfNotExist=true
+    url: jdbc:mysql://127.0.0.1:3306/librarydb?createDatabaseIfNotExist=true
     user: root
   jpa:
     properties:
@@ -14,4 +14,4 @@ spring:
         enable_lazy_load_no_trans: true
 
 database:
-  url: jdbc:mysql://127.0.0.1:3306/library?createDatabaseIfNotExist=true
+  url: jdbc:mysql://127.0.0.1:3306/librarydb?createDatabaseIfNotExist=true
