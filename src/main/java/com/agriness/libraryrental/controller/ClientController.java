@@ -22,7 +22,12 @@ public class ClientController {
     private RentalBookService service;
 
     @GetMapping("/{clientId}/books/")
-    @ApiOperation(value = "Retorna o historico de livros do cliente pelo id.", notes = "Retorna o historico de livros do cliente pelo id.")
+    @ApiOperation(value = "Retorna o historico de livros do cliente pelo id.",
+            notes = "Os dados existentes de clientes são: \n" +
+                    "<p>| ID  | Nome   |</p>\n" +
+                    "<p>|  1  | Paulo  |</p>\n" +
+                    "<p>|  2  | Maria  |</p>\n" +
+                    "<p>|  3  | Betina |</p>")
     public ResponseEntity<List<RentalBookSummaryDto>> reserveBook(@PathVariable Long clientId) {
         List<RentalBookSummaryDto> rentalBooksDtos = service.
                 getRentalBooksByClientId(clientId);

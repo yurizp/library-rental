@@ -10,6 +10,7 @@ jobs:
 
     steps:
       - checkout
+      - setup_remote_docker
       - run: mkdir test-reports
       - run: ./gradlew dependencies
       - save_cache:
@@ -26,7 +27,16 @@ jobs:
             find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/test-results/junit/ \;
             cp -a ./build/reports/tests/test/.  ~/test-results/junit/
           when: always
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - run: docker build -t yurizp/library:$CIRCLE_SHA1 .
+      - run: docker tag yurizp/library:$CIRCLE_SHA1 yurizp/library:latest
+      - run: docker push yurizp/library:$CIRCLE_SHA1
+      - run: docker push yurizp/library:latest
       - store_test_results:
           path: ~/test-results
       - store_artifacts:
           path: ~/test-results/junit
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./

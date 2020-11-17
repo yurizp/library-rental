@@ -2,6 +2,7 @@ spring:
   datasource:
     hikari:
       connection-test-query: SELECT 1
+      initialization-fail-timeout: 10000
     url: ${database.url}
     username: ${database.username}
     password: ${database.password}
@@ -12,6 +13,6 @@ spring:
         enable_lazy_load_no_trans: true
 
 database:
-  url: jdbc:mysql://127.0.0.1:3306/library?createDatabaseIfNotExist=true
-  username: root
-  password: password
+  url: ${DB_NAME:jdbc:mysql://127.0.0.1:3306/library?createDatabaseIfNotExist=true}
+  username: ${DB_USER:root}
+  password: ${DB_PASS:password}
