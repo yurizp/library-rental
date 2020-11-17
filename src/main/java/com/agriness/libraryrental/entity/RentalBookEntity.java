@@ -55,6 +55,11 @@ public class RentalBookEntity {
                 Objects.equals(getBookId(), that.getBookId());
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, status, bookId, book);
+    }
+
     @SneakyThrows
     @Override
     public String toString() {

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.SneakyThrows;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Setter
@@ -15,7 +16,7 @@ import java.util.Objects;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SimpleError {
+public class SimpleError implements Serializable {
 
     private String message;
     private String code;

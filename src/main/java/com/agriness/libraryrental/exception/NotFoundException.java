@@ -6,8 +6,7 @@ import org.springframework.http.HttpStatus;
 
 public class NotFoundException extends HttpException {
 
-    private SimpleError error;
-    private Throwable cause;
+    private final SimpleError error;
 
     public NotFoundException(ErrorMessage errorMessage){
         super(errorMessage.getMessage());

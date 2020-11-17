@@ -54,7 +54,7 @@ public class RentalBookService {
         return bookClientRepository.findByClientId(clientId)
                 .orElseThrow(() -> new NotFoundException(ErrorMessage.RENTAL_BOOK_NOT_FOUND))
                 .stream()
-                .map(rental -> createRentalBookSummaryDto(rental))
+                .map(this::createRentalBookSummaryDto)
                 .collect(Collectors.toList());
     }
 

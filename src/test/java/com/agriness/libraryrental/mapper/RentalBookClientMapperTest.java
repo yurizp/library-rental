@@ -1,13 +1,11 @@
 package com.agriness.libraryrental.mapper;
 
+import static org.junit.jupiter.api.Assertions.*;
 import com.agriness.libraryrental.entity.RentalBookClientEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 class RentalBookClientMapperTest {
@@ -16,14 +14,14 @@ class RentalBookClientMapperTest {
     private RentalBookClientMapper mapper;
 
     @Test
-    public void shouldCreateRentalBOokClientEntity() {
+    void shouldCreateRentalBOokClientEntity() {
         long clientId = 312L;
         long rentalBookId = 123L;
         RentalBookClientEntity result = mapper.createEntity(rentalBookId, clientId);
         assertAll(
-                () -> assertEquals(result.getId(), null),
+                () -> assertNull(result.getId()),
                 () -> assertEquals(result.getRentalBookId(), rentalBookId),
                 () -> assertEquals(result.getClientId(), clientId),
-                () -> assertEquals(result.getReturnedDate(), null));
+                () -> assertNull(result.getReturnedDate()));
     }
 }

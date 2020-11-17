@@ -1,4 +1,5 @@
 plugins {
+    id 'jacoco'
     id 'org.springframework.boot' version '2.4.0'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
@@ -36,15 +37,22 @@ dependencies {
 
 }
 
-test {
-    useJUnitPlatform()
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
 }
 
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
 
 sonarqube {
     properties {
-        property "sonar.projectKey", "yurizp_library-rental-"
+        property "sonar.projectKey", "yurizp_library-rental"
         property "sonar.organization", "yurizp"
         property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.exclusions", "**/test/**/*.java, **/dto/*.java, **/enums/*.java, **/repository/*.java, **/exception/*.java, **/entity/*.java, **/config/*.java, **/request/*.java"
     }
 }

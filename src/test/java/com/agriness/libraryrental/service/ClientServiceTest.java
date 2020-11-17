@@ -30,7 +30,7 @@ class ClientServiceTest {
     private ClientService clientService;
 
     @Test
-    public void shouldReturnClientWhenFindClientById() {
+    void shouldReturnClientWhenFindClientById() {
         long clientId = 4582L;
         ClientEntity clientEntity = new ClientEntity();
         ClientDto clientDto = createClientDto();

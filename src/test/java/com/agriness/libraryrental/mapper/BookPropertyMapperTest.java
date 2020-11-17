@@ -24,7 +24,7 @@ class BookPropertyMapperTest {
     private BookPropertyMapper mapper;
 
     @Test
-    public void shouldConvertBookPropertiesEntityToBookPropertiesDto() {
+    void shouldConvertBookPropertiesEntityToBookPropertiesDto() {
         BookPropertyEntity bookPropertyEntity = createBookPropertyEntity("titulo", "Sr Batata");
         BookPropertyDto result = mapper.createDto(bookPropertyEntity);
         assertAll(
@@ -35,7 +35,7 @@ class BookPropertyMapperTest {
     }
 
     @Test
-    public void shouldConvertListBookPropertiesEntityToListBookPropertiesDto() {
+    void shouldConvertListBookPropertiesEntityToListBookPropertiesDto() {
         BookPropertyEntity bookPropertyEntity = createBookPropertyEntity("titulo", "Sr Batata");
         List<BookPropertyDto> results = mapper.createDto(Arrays.asList(bookPropertyEntity));
         assertAll(
@@ -47,13 +47,13 @@ class BookPropertyMapperTest {
     }
 
     @Test
-    public void shouldReturnEmptyListWhenListBookPropertiesEntityIsNull() {
+    void shouldReturnEmptyListWhenListBookPropertiesEntityIsNull() {
         List<BookPropertyDto> results = mapper.createDto((List) null);
         assertTrue(CollectionUtils.isEmpty(results));
     }
 
     @Test
-    public void shouldReturnEmptyListWhenListBookPropertiesEntityIsEmpty() {
+    void shouldReturnEmptyListWhenListBookPropertiesEntityIsEmpty() {
         List<BookPropertyDto> results = mapper.createDto(Collections.EMPTY_LIST);
         assertTrue(CollectionUtils.isEmpty(results));
     }

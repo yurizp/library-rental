@@ -1,14 +1,10 @@
 spring:
   datasource:
     hikari:
-      jdbc-url: jdbc:mysql://127.0.0.1:3306/library?createDatabaseIfNotExist=true
-    url: jdbc:mysql://127.0.0.1:3306/library?createDatabaseIfNotExist=true
-    username: root
-    password: password
-  liquibase:
-    url: jdbc:mysql://127.0.0.1:3306/library?createDatabaseIfNotExist=true
-    user: root
-    password: password
+      connection-test-query: SELECT 1
+    url: ${database.url}
+    username: ${database.username}
+    password: ${database.password}
   jpa:
     properties:
       hibernate:
@@ -17,3 +13,5 @@ spring:
 
 database:
   url: jdbc:mysql://127.0.0.1:3306/library?createDatabaseIfNotExist=true
+  username: root
+  password: password

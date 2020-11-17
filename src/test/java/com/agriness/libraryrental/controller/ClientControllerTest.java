@@ -27,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @WebMvcTest
 @ContextConfiguration(classes = ClientController.class)
-public class ClientControllerTest {
+class ClientControllerTest {
 
     @Autowired
     private MockMvc client;
@@ -36,7 +36,7 @@ public class ClientControllerTest {
     private RentalBookService service;
 
     @Test
-    public void shouldReturnAllReservedBooks() throws Exception {
+    void shouldReturnAllReservedBooks() throws Exception {
         String response = ResourceUtils.loadResourceAsString("json/client/return-reserved-books.json");
         when(service.getRentalBooksByClientId(anyLong())).thenReturn(Arrays.asList(createRentalBookSummaryDto()));
         client.perform(get("/v1/clients/123/books/")
@@ -49,7 +49,7 @@ public class ClientControllerTest {
         return RentalBookSummaryDto.builder()
                 .tax(createTaxDto())
                 .bookSummary(createBookSummaryDto())
-                .renteDate(LocalDate.now().minusDays(3))
+                .renteDate(LocalDate.of(2020,12,3))
                 .build();
     }
 

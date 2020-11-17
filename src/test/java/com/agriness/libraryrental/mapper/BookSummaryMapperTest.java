@@ -27,7 +27,7 @@ class BookSummaryMapperTest {
     private BookSummaryMapper bookSummaryMapper;
 
     @Test
-    public void shouldCreateBookSummaryDto() {
+    void shouldCreateBookSummaryDto() {
         BookEntity bookEntity = createBookEntity();
         when(bookPropertieMapper.createDto(anyList())).thenReturn(new ArrayList<>());
         BookSummaryDto result = bookSummaryMapper.createBookSummaryDto(bookEntity);

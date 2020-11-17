@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @WebMvcTest
 @ContextConfiguration(classes = BookController.class)
-public class BookControllerTest {
+class BookControllerTest {
 
     @Autowired
     private MockMvc client;
@@ -41,7 +41,7 @@ public class BookControllerTest {
     private RentalBookService rentalBookService;
 
     @Test
-    public void shouldReturnAllBooks() throws Exception {
+    void shouldReturnAllBooks() throws Exception {
         String response = ResourceUtils.loadResourceAsString("json/book/get-all-books.json");
         when(service.getAllBook()).thenReturn(Arrays.asList(createBookDto()));
         client.perform(get("/v1/books")
@@ -51,7 +51,7 @@ public class BookControllerTest {
     }
 
     @Test
-    public void shouldReserve() throws Exception {
+    void shouldReserve() throws Exception {
         client.perform(post("/v1/books/123/reserve/")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .accept(MediaType.APPLICATION_JSON_VALUE)
@@ -61,7 +61,7 @@ public class BookControllerTest {
     }
 
     @Test
-    public void shouldReturnBook() throws Exception {
+    void shouldReturnBook() throws Exception {
         client.perform(post("/v1/books/123/return/")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .accept(MediaType.APPLICATION_JSON_VALUE)

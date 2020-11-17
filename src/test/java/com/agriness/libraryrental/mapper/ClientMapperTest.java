@@ -20,7 +20,7 @@ class ClientMapperTest {
     private ClientMapper mapper;
 
     @Test
-    public void shouldCreateClientDto() {
+    void shouldCreateClientDto() {
         ClientEntity clientEntity = createClientEntity();
         ClientDto result = mapper.createClientDto(clientEntity);
 

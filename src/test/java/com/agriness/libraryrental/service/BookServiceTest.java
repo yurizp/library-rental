@@ -27,7 +27,7 @@ class BookServiceTest {
     private BookService service;
 
     @Test
-    public void shoudReturnAllBooks() {
+    void shoudReturnAllBooks() {
         BookEntity bookEntity = new BookEntity();
         BookDto bookDto = new BookDto();
         when(repository.findAll()).thenReturn(Arrays.asList(bookEntity));

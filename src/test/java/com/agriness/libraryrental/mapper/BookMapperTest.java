@@ -32,7 +32,7 @@ class BookMapperTest {
 
 
     @Test
-    public void shouldConvertBookEntityToBookDtoAndSetStatusToUnavailable() {
+    void shouldConvertBookEntityToBookDtoAndSetStatusToUnavailable() {
         BookEntity bookEntity = createBookEntity();
         BookDto result = bookMapper.createBookDto(bookEntity);
         assertAll(
@@ -49,7 +49,7 @@ class BookMapperTest {
     }
 
     @Test
-    public void shouldConvertBookEntityToBookDtoAndSetStatusToAvailable() {
+    void shouldConvertBookEntityToBookDtoAndSetStatusToAvailable() {
         BookEntity bookEntity = createBookEntity();
         bookEntity.setRentalBooks(Arrays.asList(
                 RentalBookEntity.builder().status(StatusEnum.RENTED).build(),
@@ -70,7 +70,7 @@ class BookMapperTest {
     }
 
     @Test
-    public void shouldConvertBookEntityToBookDtoAndSetStatusToRented() {
+    void shouldConvertBookEntityToBookDtoAndSetStatusToRented() {
         BookEntity bookEntity = createBookEntity();
         bookEntity.setRentalBooks(Arrays.asList(
                 RentalBookEntity.builder().status(StatusEnum.RENTED).build(),

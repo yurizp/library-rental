@@ -5,6 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ObjectUtils {
 
+    private ObjectUtils() {
+    }
+
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     public static String toString(Object o) throws JsonProcessingException {

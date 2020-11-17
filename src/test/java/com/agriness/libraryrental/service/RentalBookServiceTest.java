@@ -55,7 +55,7 @@ class RentalBookServiceTest {
     private RentalBookService service;
 
     @Test
-    public void shoudlRenturBookWithSucess() {
+    void shoudlRenturBookWithSucess() {
         long clientId = 542L;
         long bookId = 123L;
         when(repository.findFirstByBookIdAndStatus(bookId, StatusEnum.AVAILABLE))
@@ -69,7 +69,7 @@ class RentalBookServiceTest {
     }
 
     @Test
-    public void shoudlRenturNotFoundWhenNoExistsAvailableBook() {
+    void shoudlRenturNotFoundWhenNoExistsAvailableBook() {
         long clientId = 542L;
         long bookId = 123L;
         when(repository.findFirstByBookIdAndStatus(bookId, StatusEnum.AVAILABLE)).thenReturn(Optional.empty());
@@ -87,7 +87,7 @@ class RentalBookServiceTest {
     }
 
     @Test
-    public void shoudlRenturBadRequestWhenAlredyRented() {
+    void shoudlRenturBadRequestWhenAlredyRented() {
         long clientId = 542L;
         long bookId = 123L;
         when(repository.findFirstByBookIdAndStatus(bookId, StatusEnum.AVAILABLE))
@@ -106,7 +106,7 @@ class RentalBookServiceTest {
     }
 
     @Test
-    public void shouldReturnRentedBookWithSucess() {
+    void shouldReturnRentedBookWithSucess() {
         long clientId = 542L;
         long bookId = 123L;
         RentalBookClientEntity bookClientEntity = new RentalBookClientEntity();
@@ -121,7 +121,7 @@ class RentalBookServiceTest {
     }
 
     @Test
-    public void shouldReturnBadRequestWhenNotFoundRentedBook() {
+    void shouldReturnBadRequestWhenNotFoundRentedBook() {
         long clientId = 542L;
         long bookId = 123L;
         when(bookClientRepository.findFirstByBooIdAndClientId(eq(bookId), eq(clientId))).thenReturn(Optional.empty());
@@ -139,7 +139,7 @@ class RentalBookServiceTest {
     }
 
     @Test
-    public void shouldReturnRentalBooksByClientIdWithSucess() {
+    void shouldReturnRentalBooksByClientIdWithSucess() {
         long clientId = 123L;
         when(bookClientRepository.findByClientId(clientId)).thenReturn(Optional.of(Arrays.asList(RentalBookClientEntity.builder().lentedDate(LocalDate.now()).build())));
         when(bookTaxEntity.findTaxByRentalDate(anyLong())).thenReturn(new RentalTaxEntity());

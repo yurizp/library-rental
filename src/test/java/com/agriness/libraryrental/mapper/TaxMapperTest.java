@@ -1,14 +1,12 @@
 package com.agriness.libraryrental.mapper;
 
+import static org.junit.jupiter.api.Assertions.*;
 import com.agriness.libraryrental.dto.TaxDto;
 import com.agriness.libraryrental.entity.RentalTaxEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 class TaxMapperTest {
@@ -17,7 +15,7 @@ class TaxMapperTest {
     private TaxMapper taxMapper;
 
     @Test
-    public void shouldCreateTaxDto() {
+    void shouldCreateTaxDto() {
         RentalTaxEntity rentalTaxEntity = createRentalTaxEntity();
         TaxDto result = taxMapper.creteTaxDto(rentalTaxEntity, 10L);
         assertAll(
@@ -27,6 +25,12 @@ class TaxMapperTest {
                 () -> assertEquals(result.getTotalTax(), 13),
                 () -> assertEquals(result.getDailyRate(), rentalTaxEntity.getDailyRate())
         );
+    }
+
+    @Test
+    void shouldReturnNullWhenInputIsNull() {
+        TaxDto result = taxMapper.creteTaxDto(null, 10L);
+        assertNull(result);
     }
 
     private RentalTaxEntity createRentalTaxEntity() {
