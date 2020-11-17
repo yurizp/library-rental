@@ -50,7 +50,9 @@ test {
 
 sonarqube {
     properties {
+        property "sonar.projectDescription", "Microserviço para locação de livros."
         property "sonar.projectKey", "yurizp_library-rental"
+        property "sonar.links.homepage", "https://github.com/yurizp/library-rental"
         property "sonar.organization", "yurizp"
         property "sonar.host.url", "https://sonarcloud.io"
         property "sonar.exclusions", "**/test/**/*.java, **/dto/*.java, **/enums/*.java, **/repository/*.java, **/exception/*.java, **/entity/*.java, **/config/*.java, **/request/*.java"
